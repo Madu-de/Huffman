@@ -17,7 +17,7 @@ class HuffmanNode {
 }
 
 const word: string = 'MISSISSIPPI';
-let code: string = <string>huffman(word)[0];
+let code: string = <string>huffman(word, true)[0];
 console.log(code);
 
 function huffman(word: string, withSpace?: boolean): (string | Map<string, string>)[] {
@@ -40,8 +40,7 @@ function generateAllHuffmanNodes(sortedCharArray: [string, number][]): HuffmanNo
     let nodes: HuffmanNode[] = [
         new HuffmanNode([sortedCharArray[0], sortedCharArray[1]])
     ];
-    sortedCharArray.shift();
-    sortedCharArray.shift();
+    sortedCharArray.splice(0, 2);
     let node: HuffmanNode = nodes[0];
     sortedCharArray.forEach(char => {
         node = new HuffmanNode([[node.name, node.count], char]);
