@@ -17,8 +17,9 @@ class HuffmanNode {
 }
 
 const word: string = 'MISSISSIPPI';
-let code: string = <string>huffman(word, true)[0];
+let [code, tree] = huffman(word, false);
 console.log(code);
+console.log(tree);
 
 function huffman(word: string, withSpace?: boolean): (string | Map<string, string>)[] {
     let huffmancode: string = word;
